@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Title} from "@angular/platform-browser";
+
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  constructor(
+    private titleService:Title
+    ){
+    this.titleService.setTitle("OrganizaFacil");
+  }
+
+  title = 'OrganizaFacil';
+  calendarPlugins = [dayGridPlugin]
 }
