@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Title} from "@angular/platform-browser";
 
-import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
   selector: 'app-root',
@@ -16,5 +15,4 @@ export class AppComponent {
   }
 
   title = 'OrganizaFacil';
-  calendarPlugins = [dayGridPlugin]
 }
