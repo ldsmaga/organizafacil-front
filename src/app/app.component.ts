@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(
     private titleService:Title
     ){
-    this.titleService.setTitle("OrganizaFacil");
+    this.titleService.setTitle("OrganizaFacil  | Tudo em um só lugar");
   }
 
   title = 'OrganizaFacil';
