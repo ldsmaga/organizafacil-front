@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DefaultModule } from './layouts/default/default.module';
 import { NotasService } from './notas.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { LoginService } from './login.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     DefaultModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [ NotasService, LoginService ],
   bootstrap: [AppComponent]

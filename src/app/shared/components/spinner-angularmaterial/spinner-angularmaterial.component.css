@@ -1,0 +1,19 @@
+ /* .example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  */
+  .spin {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    float: left;
+    padding-top: 0.2em;
+    position: relative;
+  }  

@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NotasComponent } from 'src/app/modules/notas/notas.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarioComponent } from 'src/app/modules/calendario/calendario.component';
+import { MaterialModule } from 'src/app/material-module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CalendarioComponent } from 'src/app/modules/calendario/calendario.compo
     RouterModule,
     FlexLayoutModule,
     SharedModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MaterialModule
   ]
 })
 export class DefaultModule { }

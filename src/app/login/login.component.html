@@ -1,1 +1,53 @@
-<p>login works!</p>
+<body>
+    
+<div class="main-div">
+
+
+    <mat-card color="primary" class="mat-elevation-z8">
+        <mat-card-title style="height: 55px;" layout-align="center center">
+            <!-- <h1 style="width: 100%;"><img class="img-responsive" src="/assets/logo.png" alt="iBoltsys"></h1> -->
+            <h1 style="width: 100%;">OrganizaFacil</h1>
+        </mat-card-title>
+
+        <form [formGroup]="loginForm" class="form" (submit)="login()">
+            <mat-card-content>
+
+                <mat-form-field class="input-full-width">
+                    <mat-placeholder>
+                        <mat-icon> perm_identity</mat-icon>usuário
+                    </mat-placeholder>
+                    <input matInput autofocus formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="input-full-width">
+                    <mat-placeholder>
+                        <mat-icon>visibility</mat-icon>senha
+                    </mat-placeholder>
+                    <input matInput type="password" formControlName="senha">
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-grid-list cols="1" rowHeight="50px">
+                    <mat-grid-tile>
+                        <button *ngIf="!load; else spin;" type="submit" mat-flat-button color="primary" [disabled]="loginForm.invalid">
+                            <mat-icon>input</mat-icon>
+                            <span>Login</span>
+                        </button>
+                    </mat-grid-tile>
+                    <!-- <mat-grid-tile>
+                        <a href="#" routerLink="/senha/solicitar">Esqueci minha senha</a>
+                    </mat-grid-tile> -->
+                </mat-grid-list>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
+
+
+<!-- Botão que mostra para o usuário assim que o download iniciar -->
+<ng-template #spin>
+    <button mat-raised-button color="primary" title="Clique para entrar" >
+         Entrando...&nbsp;&nbsp; <!--<app-spinner-angularmaterial></app-spinner-angularmaterial>   -->
+    </button>
+    </ng-template>
+</body>

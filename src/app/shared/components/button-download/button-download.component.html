@@ -1,0 +1,17 @@
+<!--<button mat-raised-button color="primary" title="Clique para baixar" (click)="download($event)">
+    
+       <mat-icon>save_alt</mat-icon>
+</button> -->
+
+<!-- Botão que inicia o download -->
+<button *ngIf="load; else spin;" mat-raised-button color="primary" title="Clique para baixar" (click)="download($event)">
+        <mat-icon >save_alt</mat-icon>    {{nome}}  
+</button>
+
+<!-- Botão que mostra para o usuário assim que o download iniciar -->
+<ng-template class="control" #spin>
+    <button mat-raised-button color="primary" title="Clique para baixar" >
+        {{alteraNome}}&nbsp;&nbsp; <app-spinner-angularmaterial *ngIf="showSpin" ></app-spinner-angularmaterial>  
+    </button>
+</ng-template>
+

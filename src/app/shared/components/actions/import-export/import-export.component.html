@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Escolha a ação</h1>
+
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs" dynamicHeight style="height: 250px">
+
+    <mat-tab label="First" label="Long tab">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">arrow_downward</mat-icon>
+            Importar
+        </ng-template>
+
+        <mat-grid-list cols="1" rowHeight="50px">
+
+            <mat-grid-tile>
+
+                <div *ngIf="error" style="background-color:#f44336; padding: 20px; color: white;text-align: center;">
+                    <p>Erro: {{error.erro}}, Linha: {{error.linha}}, na coluna: {{error.coluna}} </p>
+                </div>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <br><br>
+                <h2>Selecione o arquivo</h2>
+            </mat-grid-tile>
+            <form class="example-form" [formGroup]="form" (submit)="import()">
+                <mat-grid-tile>
+                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="30px">
+                        <input type="file" (change)="onFileChange($event)">
+                    </div>
+                </mat-grid-tile>
+                <div *ngIf="importFlag == true">
+                    <div *ngIf="showSpinner" style="width: 15%; margin: 0 auto; padding: 5px;">
+                        <app-spinner style="width: 70%;" [completeSuccess]="success"></app-spinner>
+                    </div>
+                </div>
+                <mat-grid-tile>
+                    <button mat-raised-button color="accent" [disabled]="form.invalid">Importar</button>
+                </mat-grid-tile>
+            </form>
+        </mat-grid-list>
+    </mat-tab>
+
+    <mat-tab label="Second" label="Long tab">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">arrow_upward</mat-icon>
+            Exportar
+        </ng-template>
+
+        <mat-grid-list cols="1" rowHeight="60px">
+            <mat-grid-tile>
+                <h2>Exportar arquivo</h2>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-raised-button color="accent" (click)="export()">Exportar</button>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="showSpinner">
+                <app-spinner [completeSuccess]="success"></app-spinner>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-tab>
+</mat-tab-group>

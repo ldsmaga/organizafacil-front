@@ -1,0 +1,11 @@
+.progress-bar{
+    margin-top: 10px;
+}
+
+.success{
+    background-color: var(--success_color) !important;
+}
+
+.error{
+    background-color: var(--error_color) !important;
+}

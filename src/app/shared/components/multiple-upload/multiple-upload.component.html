@@ -1,0 +1,22 @@
+<div layout="row" class="upload" style="margin-top: -30px; text-align: center;" appDragDrop
+    (onFileDropped)="uploadFileDragAndDrop($event)">
+    <h3>Arraste as fotos para o centro, ou clique no upload e selecione as fotos</h3>
+    <mat-card style="margin-top:10px;">
+        <mat-card-content [style.overflow-y]="'auto'" [style.height.px]="'300'">
+            <ul style="width: 95%; margin-top:10px;">
+                <li *ngFor="let file of files">
+                    <app-multiple-upload-item [progress]="file.progress" name="{{file.data.name}}" done={{file.done}}
+                        error="{{file.error}}"></app-multiple-upload-item>
+                </li>
+            </ul>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="warn" (click)="onClick()">
+                <mat-icon>file_upload</mat-icon>
+                Upload
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    <input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*"
+        style="display:none;" appDragDrop (onFileDropped)="uploadFileDragAndDrop($event)" />
+</div>

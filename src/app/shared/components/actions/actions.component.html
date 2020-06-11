@@ -1,0 +1,12 @@
+<div style="display: flex" class="container actions" layout="row" flex>
+    <button class="btn" *ngIf="buttonNew" routerLink="{{newUrl}}" mat-mini-fab aria-label="Adicionar novo usuario" matTooltip="Adicionar">
+        <mat-icon>add</mat-icon>
+    </button>
+    
+    <button class="btn" *ngIf="buttonExportImport" mat-mini-fab color="warn" (click)="openDialog()" matTooltip="Importar/Exportar">
+        <mat-icon>import_export</mat-icon>
+    </button> 
+
+    <ng-content select="[more]"></ng-content>
+</div>
+

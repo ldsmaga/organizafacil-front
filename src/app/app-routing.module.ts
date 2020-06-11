@@ -4,13 +4,20 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { HomeComponent } from './modules/home/home.component';
 import { NotasComponent } from './modules/notas/notas.component';
 import { CalendarioComponent } from './modules/calendario/calendario.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './core/auth/auth.guard';
 
 
 const routes: Routes = [{
   path: '',
-  component: DefaultComponent,
-  children: [{
-    path:'',
+  component: LoginComponent
+},
+  {
+    path: 'home',
+    component: DefaultComponent, 
+     canActivate: [AuthGuard],
+    children: [{
+    path:'', 
     component:HomeComponent
   },{
     path:'notas',
