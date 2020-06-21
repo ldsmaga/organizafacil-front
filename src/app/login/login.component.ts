@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     public dialog: MatDialog,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private userService: UserService
+  ) { this.logado();}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -54,5 +55,12 @@ export class LoginComponent implements OnInit {
               });
         }
       )
+  }
+
+  logado(){
+    if(this.userService.isLogged()){
+      this.router.navigate(["home"]);
+    }
+    
   }
 }

@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
+
+  public email:any; 
   constructor(private userService: UserService, private router: Router) { }
 
   logout(){
@@ -16,7 +17,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  getEmail(){
+    this.email = this.userService.getUsername();
+  }
+
   ngOnInit(): void {
+    this.getEmail();
   }
 
 }

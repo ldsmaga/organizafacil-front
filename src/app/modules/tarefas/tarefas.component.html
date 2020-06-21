@@ -1,0 +1,16 @@
+<h3>Tarefas</h3>
+ <ul>
+    <li *ngFor="let tarefa of tarefas.content">
+        {{tarefa.conteudo_tarefa}}
+    </li>
+</ul>
+
+<form [formGroup]="tarefaForm">
+<input type="text" formControlName="conteudo_tarefa">
+<button (click)="adicionar()">Enviar</button>
+<button (click)="editar()">Editar</button>
+<button (click)="inativar()">Inativar</button>
+</form>
+
+<pre>
+{{tarefas | json}}</pre>

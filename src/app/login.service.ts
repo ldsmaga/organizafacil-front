@@ -19,6 +19,6 @@ export class LoginService {
       let username="usuario";
       let password="usuario";
       const headers = new HttpHeaders({Authorization: 'Basic'+btoa("usuario"+":"+"usuario")})
-      this.http.get("http://localhost:9191/getUsuarios",{headers});
+      this.http.get("http://localhost:9191/getUsuarios",{headers, responseType:"text" as 'json'});
     }
 }

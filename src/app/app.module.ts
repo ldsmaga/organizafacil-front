@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,15 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DefaultModule } from './layouts/default/default.module';
-import { NotasService } from './notas.service';
+import { NotasService } from './modules/notas/notas.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { MaterialModule } from './material-module';
+import { TokenInterceptor } from './core/auth/token-interceptor';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,14 @@ import { MaterialModule } from './material-module';
     FormsModule,
     MaterialModule
   ],
-  providers: [ NotasService, LoginService ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }, 
+  NotasService, 
+  LoginService 
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

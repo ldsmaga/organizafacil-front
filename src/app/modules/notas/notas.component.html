@@ -1,5 +1,16 @@
-<ul>
-    <li *ngFor="let nota of notas">
-        {{nota.idAnotacao}} . {{nota.conteudo_anotacao}}
+<h3>Notas</h3>
+ <ol>
+    <li *ngFor="let nota of notas.content">
+        {{nota.idAnotacao}} . {{nota.conteudo_anotacao}} . {{nota.status_anotacao}} 
     </li>
-</ul>
+</ol>
+
+<form [formGroup]="notaForm">
+<input type="text" formControlName="conteudo_anotacao">
+<button (click)="adicionar()">Enviar</button> 
+<button (click)="editar()">Editar</button>
+<button (click)="inativar()">Inativar</button>
+</form>
+
+<pre>
+{{notas | json}}</pre>

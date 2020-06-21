@@ -6,6 +6,7 @@ import { NotasComponent } from './modules/notas/notas.component';
 import { CalendarioComponent } from './modules/calendario/calendario.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './core/auth/auth.guard';
+import { TarefasComponent } from './modules/tarefas/tarefas.component';
 
 
 const routes: Routes = [{
@@ -22,6 +23,9 @@ const routes: Routes = [{
   },{
     path:'notas',
     component: NotasComponent
+  },{
+    path:'tarefas',
+    component: TarefasComponent
   },
   {
     path:'calendario',

@@ -9,6 +9,10 @@ import { NotasComponent } from 'src/app/modules/notas/notas.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarioComponent } from 'src/app/modules/calendario/calendario.component';
 import { MaterialModule } from 'src/app/material-module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from 'src/app/core/auth/token-interceptor';
+import { TarefasComponent } from 'src/app/modules/tarefas/tarefas.component';
 
 
 @NgModule({
@@ -16,7 +20,8 @@ import { MaterialModule } from 'src/app/material-module';
     DefaultComponent,
     HomeComponent,
     NotasComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    TarefasComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +29,10 @@ import { MaterialModule } from 'src/app/material-module';
     FlexLayoutModule,
     SharedModule,
     FullCalendarModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
+  
 })
 export class DefaultModule { }
