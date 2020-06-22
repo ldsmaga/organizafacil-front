@@ -1,5 +1,36 @@
-<h3>Tarefas</h3>
- <ul>
+
+<form [formGroup]="tarefaForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Adicionar Tarefa</mat-label>
+            <textarea matInput placeholder="Tarefa"></textarea>
+          </mat-form-field>
+    <button mat-raised-button color="primary" (click)="adicionar()">Adicionar</button> 
+    </form> 
+    <br>
+    <mat-divider></mat-divider>
+    <br><br>
+        <div *ngFor="let tarefa of tarefas.content">
+            <mat-card><mat-checkbox>{{tarefa.conteudo_tarefa}} </mat-checkbox>
+                <div fxLayout="row" fxLayoutAlign="end stretch">
+                <button mat-mini-fab color="primary" (click)="editar()"><mat-icon>create</mat-icon></button>
+                <button mat-mini-fab color="warn" (click)="inativar()"><mat-icon>delete</mat-icon></button>
+            </div>
+            </mat-card><br>
+                
+            </div>
+            
+  
+<br>
+
+
+
+<!-- <pre>
+{{notas | json}}</pre> -->
+
+
+
+
+ <!-- <ul>
     <li *ngFor="let tarefa of tarefas.content">
         {{tarefa.conteudo_tarefa}}
     </li>
@@ -13,4 +44,4 @@
 </form>
 
 <pre>
-{{tarefas | json}}</pre>
+{{tarefas | json}}</pre> -->

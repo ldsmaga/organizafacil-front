@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NotasService } from 'src/app/modules/notas/notas.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { NotasModel } from 'src/app/models/notas.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notas',
@@ -20,6 +21,7 @@ export class NotasComponent implements OnInit {
       
     this.listar();
       this.notaForm = this.formBuilder.group({
+        status_anotacao: ['ativo'],
         conteudo_anotacao: ['']
       })
 
@@ -55,5 +57,6 @@ editar(){
   let json = `{"idAnotacao":"14", "conteudo_anotacao":"oiz"}`
   this.notaService.editar(json);
 }
+
 
 }

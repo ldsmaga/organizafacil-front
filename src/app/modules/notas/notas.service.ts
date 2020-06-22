@@ -20,7 +20,8 @@ export class NotasService {
   adicionar(json){
     return this.http.post(`${this.notasUrl}/adicionar`, json).subscribe(
       resultado => {
-        console.log(resultado)
+        console.log(resultado) 
+  window.location.reload();
       })
   }
 

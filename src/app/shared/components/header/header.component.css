@@ -1,9 +1,19 @@
+.logo{
+    font-family: 'Sriracha', cursive;
+    size: 30px;
+}
+
+
 header{
     padding: 20px;
-    background-color: green;
+    background-color: rgb(46, 180, 46);
     
 }
+
+
 
 img{
     height: 20px;
 }
+
+

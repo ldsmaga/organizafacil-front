@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserService } from 'src/app/core/user/user.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   public email:any; 
-  constructor(private userService: UserService, private router: Router) { }
+
+
+  constructor(
+    private userService: UserService, private router: Router) { 
+}
 
   logout(){
     this.userService.logout();
