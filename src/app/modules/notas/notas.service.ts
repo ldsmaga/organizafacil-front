@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import { TokenService } from '../../core/token/token.service';
 import { Observable } from 'rxjs';
 import { NotasModel } from '../../models/notas.model';
@@ -13,8 +12,8 @@ export class NotasService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
-  listar():Observable<any>{
-    return this.http.get<NotasModel[]>(`${this.notasUrl}`)
+  listar():Observable<NotasModel>{ 
+    return this.http.get<NotasModel>(`${this.notasUrl}`);
   }
 
   adicionar(json){
@@ -29,6 +28,7 @@ export class NotasService {
     return this.http.put(`${this.notasUrl}/inativar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        window.location.reload();
       })
   }
 
@@ -37,6 +37,7 @@ export class NotasService {
     return this.http.put(`${this.notasUrl}/editar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        window.location.reload();
       })
   }
 

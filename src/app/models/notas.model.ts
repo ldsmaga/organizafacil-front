@@ -1,5 +1,7 @@
-export class NotasModel{
-    public id_anotacao: string;
-    public conteudo_anotacao: string;
-    public status_anotacao: string;
+import { ContentModel } from './content.model'
+
+export class NotasModel {
+  public content: ContentModel;
+          
+
 }

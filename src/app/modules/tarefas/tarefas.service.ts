@@ -20,6 +20,7 @@ export class TarefasService {
     return this.http.post(`${this.tarefasUrl}/adicionar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        window.location.reload();
       })
   }
 

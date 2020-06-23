@@ -2,24 +2,30 @@
 
 
     <mat-tab label="Minhas Notas"> 
-        
+        <ng-container *ngIf="notas">
         <div *ngFor="let nota of notas.content">
-            <mat-card>{{nota.conteudo_anotacao}} 
+            <div *ngIf="nota.status_anotacao != 'inativo'">
+            <mat-card>
+                {{nota.conteudo_anotacao}} 
                 <div fxLayout="row" fxLayoutAlign="end stretch">
-                <button mat-mini-fab color="primary" (click)="editar()"><mat-icon>create</mat-icon></button>
-                <button mat-mini-fab color="warn" (click)="inativar()"><mat-icon>delete</mat-icon></button>
+                <button mat-mini-fab color="primary" (click)="openDialog(nota.idAnotacao)"><mat-icon>create</mat-icon></button>
+                <button mat-mini-fab color="warn" (click)="inativar(nota.idAnotacao)"><mat-icon>delete</mat-icon></button>
             </div>
             </mat-card><br>
-                
+        </div>
+       
             </div>
+        </ng-container>
             
 
-            <mat-tab label="Adicionar Nota"> <form [formGroup]="notaForm">
+
+            <mat-tab label="Adicionar Nota"> 
+                <form [formGroup]="notaForm">
                 <mat-form-field class="example-full-width">
                     <mat-label>Adicionar Nota</mat-label>
                     <textarea matInput formControlName="conteudo_anotacao" placeholder="Nota"></textarea>
                   </mat-form-field>
-            <button mat-raised-button color="primary" (click)="adicionar()">Enviar</button> 
+            <button mat-raised-button color="primary" (click)="adicionar()">Adicionar</button> 
             </form> 
         </mat-tab>
 

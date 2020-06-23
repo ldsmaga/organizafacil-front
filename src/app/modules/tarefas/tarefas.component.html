@@ -2,13 +2,15 @@
 <form [formGroup]="tarefaForm">
         <mat-form-field class="example-full-width">
             <mat-label>Adicionar Tarefa</mat-label>
-            <textarea matInput placeholder="Tarefa"></textarea>
+            <textarea matInput formControlName="conteudo_tarefa" placeholder="Tarefa"></textarea>
           </mat-form-field>
     <button mat-raised-button color="primary" (click)="adicionar()">Adicionar</button> 
     </form> 
     <br>
     <mat-divider></mat-divider>
     <br><br>
+
+    <ng-container *ngIf="tarefas">
         <div *ngFor="let tarefa of tarefas.content">
             <mat-card><mat-checkbox>{{tarefa.conteudo_tarefa}} </mat-checkbox>
                 <div fxLayout="row" fxLayoutAlign="end stretch">
@@ -19,6 +21,7 @@
                 
             </div>
             
+            </ng-container>
   
 <br>
 

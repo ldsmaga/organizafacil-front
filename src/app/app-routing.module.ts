@@ -7,9 +7,16 @@ import { CalendarioComponent } from './modules/calendario/calendario.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { TarefasComponent } from './modules/tarefas/tarefas.component';
+import { CadastroComponent } from './modules/cadastro/cadastro.component';
+import { DadosCadastraisComponent } from './modules/dados-cadastrais/dados-cadastrais.component';
 
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
+    path: 'cadastro',
+    component: CadastroComponent
+  },
+  {
   path: '',
   component: LoginComponent
 },
@@ -30,8 +37,19 @@ const routes: Routes = [{
   {
     path:'calendario',
     component: CalendarioComponent
-}
-]
+},
+
+]},
+
+{
+  path: 'configuracoes',
+  component: DefaultComponent, 
+   canActivate: [AuthGuard],
+  children: [{
+  path:'dados-cadastrais', 
+  component:DadosCadastraisComponent
+}]
+
 }];
 
 @NgModule({

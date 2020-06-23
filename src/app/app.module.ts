@@ -13,12 +13,14 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { MaterialModule } from './material-module';
 import { TokenInterceptor } from './core/auth/token-interceptor';
+import { CadastroComponent } from './modules/cadastro/cadastro.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,

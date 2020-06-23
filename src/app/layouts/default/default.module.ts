@@ -13,6 +13,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'src/app/core/auth/token-interceptor';
 import { TarefasComponent } from 'src/app/modules/tarefas/tarefas.component';
+import { DadosCadastraisComponent } from 'src/app/modules/dados-cadastrais/dados-cadastrais.component';
+import { EditarNotaComponent } from 'src/app/modules/notas/editar-nota/editar-nota.component';
 
 
 @NgModule({
@@ -20,8 +22,10 @@ import { TarefasComponent } from 'src/app/modules/tarefas/tarefas.component';
     DefaultComponent,
     HomeComponent,
     NotasComponent,
+    EditarNotaComponent,
     CalendarioComponent,
-    TarefasComponent
+    TarefasComponent, 
+    DadosCadastraisComponent
   ],
   imports: [
     CommonModule,

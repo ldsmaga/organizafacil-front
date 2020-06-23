@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef, Output, Input } from '@angular/core';
 import { NotasService } from 'src/app/modules/notas/notas.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EditarNotaComponent } from '../notas/editar-nota/editar-nota.component'
 
 import { NotasModel } from 'src/app/models/notas.model';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-notas',
@@ -11,15 +12,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./notas.component.css']
 })
 export class NotasComponent implements OnInit {
-  notas: any;
+  notas: NotasModel;
   erro: any;
-  notaForm: FormGroup
+  editarNota: boolean = false;
+  notaForm: FormGroup;
+  
+
   constructor(
     private notaService: NotasService,
-    private formBuilder: FormBuilder
-    ) {
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
+    )
+    
+    {
       
-    this.listar();
+    
       this.notaForm = this.formBuilder.group({
         status_anotacao: ['ativo'],
         conteudo_anotacao: ['']
@@ -27,13 +34,16 @@ export class NotasComponent implements OnInit {
 
      }
 
+
   ngOnInit(): void {
+    console.log(this.notas);
+this.listar();
   }
 
   listar(){
      this.notaService.listar().subscribe(
-       (dados: NotasModel) => {
-        this.notas = dados;
+       notas => {
+        this.notas = notas;
      },
        (error: any) => {
          this.erro = error;
@@ -48,14 +58,30 @@ adicionar(){
   this.notaService.adicionar(json);
 }
 
-inativar(){
-  let json = `{"idAnotacao":"14"}`
-  this.notaService.inativar(json);
+inativar(nota){
+  let confirmacao = confirm("Deseja realmente excluir?");
+  if (confirmacao) {
+  let json = `{"idAnotacao":"` + nota + `"}`
+console.log(json)
+this.notaService.inativar(json);
+}
+  
 }
 
-editar(){
-  let json = `{"idAnotacao":"14", "conteudo_anotacao":"oiz"}`
-  this.notaService.editar(json);
+
+openDialog(idNota){
+  
+  const dialogRef = this.dialog.open(EditarNotaComponent, {
+    width: '800px',
+    data: {
+      idAnotacao: idNota
+    }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+
 }
 
 
