@@ -14,6 +14,7 @@ import { LoginService } from './login.service';
 import { MaterialModule } from './material-module';
 import { TokenInterceptor } from './core/auth/token-interceptor';
 import { CadastroComponent } from './modules/cadastro/cadastro.component';
+import { EditarTarefaComponent } from './modules/tarefas/editar-tarefa/editar-tarefa.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CadastroComponent } from './modules/cadastro/cadastro.component';
     AppComponent,
     LoginComponent,
     CadastroComponent,
+    EditarTarefaComponent,
   ],
   imports: [
     BrowserModule,

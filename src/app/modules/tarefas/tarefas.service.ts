@@ -28,9 +28,25 @@ export class TarefasService {
     return this.http.put(`${this.tarefasUrl}/inativar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        window.location.reload();
       })
   }
 
+  arquivar(json){
+    return this.http.put(`${this.tarefasUrl}/arquivar`, json).subscribe(
+      resultado => {
+        console.log(resultado)
+        window.location.reload();
+      })
+  }
+
+  desarquivar(json){
+    return this.http.put(`${this.tarefasUrl}/desarquivar`, json).subscribe(
+      resultado => {
+        console.log(resultado)
+        window.location.reload();
+      })
+  }
 
   editar(json){
     return this.http.put(`${this.tarefasUrl}/editar`, json).subscribe(

@@ -32,6 +32,21 @@ export class NotasService {
       })
   }
 
+  arquivar(json){
+    return this.http.put(`${this.notasUrl}/arquivar`, json).subscribe(
+      resultado => {
+        console.log(resultado)
+        window.location.reload();
+      })
+  }
+
+  desarquivar(json){
+    return this.http.put(`${this.notasUrl}/desarquivar`, json).subscribe(
+      resultado => {
+        console.log(resultado)
+        window.location.reload();
+      })
+  }
 
   editar(json){
     return this.http.put(`${this.notasUrl}/editar`, json).subscribe(

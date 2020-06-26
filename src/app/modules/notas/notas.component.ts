@@ -36,7 +36,6 @@ export class NotasComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.notas);
 this.listar();
   }
 
@@ -54,7 +53,6 @@ this.listar();
 
 adicionar(){
   let json = JSON.stringify(this.notaForm.getRawValue());
-  console.log(json);
   this.notaService.adicionar(json);
 }
 
@@ -62,12 +60,25 @@ inativar(nota){
   let confirmacao = confirm("Deseja realmente excluir?");
   if (confirmacao) {
   let json = `{"idAnotacao":"` + nota + `"}`
-console.log(json)
 this.notaService.inativar(json);
 }
-  
 }
 
+arquivar(nota){
+  let confirmacao = confirm("Arquivar nota?");
+  if (confirmacao) {
+  let json = `{"idAnotacao":"` + nota + `"}`
+this.notaService.arquivar(json);
+}
+}
+
+desarquivar(nota){
+  let confirmacao = confirm("Desarquivar nota?");
+  if (confirmacao) {
+  let json = `{"idAnotacao":"` + nota + `"}`
+this.notaService.desarquivar(json);
+}
+}
 
 openDialog(idNota){
   

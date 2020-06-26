@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dados-cadastrais.component.css']
 })
 export class DadosCadastraisComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
+      }
+    
 }

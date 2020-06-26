@@ -43,7 +43,6 @@ export class EditarNotaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
 }
