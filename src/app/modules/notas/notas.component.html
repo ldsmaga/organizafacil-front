@@ -1,14 +1,12 @@
 <mat-tab-group>
 
 
-    <mat-tab label="Minhas Notas"> 
+    <mat-tab label="Minhas Notas">
         <ng-container *ngIf="notas">
         <div *ngFor="let nota of notas.content">
             <div *ngIf="nota.status_anotacao == 'ativo'">
             <mat-card>
                 {{nota.conteudo_anotacao}} 
-
-
 
                 <div fxLayout="row" fxLayoutAlign="end stretch">
                     <button mat-mini-fab color="primary" (click)="arquivar(nota.idAnotacao)" title="Arquivar"><mat-icon>archive</mat-icon></button>&nbsp;
@@ -20,6 +18,7 @@
        
             </div>
         </ng-container>
+        <p style="text-align: center;">=)</p>
     </mat-tab>
             
 
@@ -54,6 +53,7 @@
        
             </div>
         </ng-container>
+        <p style="text-align: center;">=)</p>
     </mat-tab>
 
   </mat-tab-group>

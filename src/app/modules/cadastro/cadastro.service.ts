@@ -14,6 +14,7 @@ export class CadastroService {
     return this.http.post(`${this.cadastroUrl}`, json, this.options).subscribe(
       resultado => {
         console.log(resultado) 
+        alert("Cadastro concluído!");
         this.router.navigate(['/']);
       })
   }

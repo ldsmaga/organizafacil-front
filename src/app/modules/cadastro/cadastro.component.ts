@@ -24,6 +24,7 @@ export class CadastroComponent implements OnInit {
          nome: ['', [Validators.required, Validators.minLength(1)]],
          email: ['', [Validators.required, Validators.minLength(1)]],
          senha: ['', [Validators.required, Validators.minLength(1)]],
+         confirmacaoSenha: ['', [Validators.required, Validators.minLength(1)]],
          status: ['ativo']
        })
      }
@@ -32,11 +33,22 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar(){
+
+    let senha = this.cadastroForm.get("senha").value;
+    let confirmacaoSenha = this.cadastroForm.get("confirmacaoSenha").value;
+
+    if(senha != confirmacaoSenha){
+      alert("Senhas não coincidem")
+      window.location.reload();
+    }
+    else{
+
     this.load = true;
     let json = JSON.stringify(this.cadastroForm.getRawValue());
     console.log(json)
     this.cadastroService.adicionar(json);
   }
+}
 
   cancelar(){
     this.router.navigate(["/"]);

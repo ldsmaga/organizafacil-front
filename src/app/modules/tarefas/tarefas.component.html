@@ -5,7 +5,7 @@
 <form [formGroup]="tarefaForm">
         <mat-form-field class="example-full-width">
             <mat-label>Adicionar Tarefa</mat-label>
-            <textarea matInput formControlName="conteudo_tarefa" placeholder="Tarefa"></textarea>
+            <input matInput formControlName="conteudo_tarefa" placeholder="Tarefa">
           </mat-form-field>
     <button mat-raised-button color="primary" (click)="adicionar()">Adicionar</button> 
     </form> 
@@ -26,7 +26,8 @@
                 </div>
             </div>
             
-            </ng-container>
+            </ng-container>        
+            <p style="text-align: center;">=)</p>
   </mat-tab>
 
 
@@ -45,6 +46,7 @@
                 </div>
                 
                 </ng-container>
+                <p style="text-align: center;">=)</p>
     </mat-tab></mat-tab-group>
 
 <!-- <pre>
