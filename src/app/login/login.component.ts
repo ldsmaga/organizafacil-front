@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ErrorAlertComponent } from '../shared/components/alert/error-alert/error-alert.component';
 import { AuthService } from '../core/auth/auth.service';
 import { UserService } from '../core/user/user.service';
+import { DadosCadastraisService } from '../modules/dados-cadastrais/dados-cadastrais.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,6 @@ import { UserService } from '../core/user/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  name: string = "Teste";
   loginForm: FormGroup;
   load: boolean = false;
 
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         }
       )
   }
+
 
   logado(){
     if(this.userService.isLogged()){

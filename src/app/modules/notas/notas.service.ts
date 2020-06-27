@@ -52,6 +52,7 @@ export class NotasService {
     return this.http.put(`${this.notasUrl}/editar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        alert("Alterado com sucesso!");
         window.location.reload();
       })
   }

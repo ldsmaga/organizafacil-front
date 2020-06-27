@@ -34,7 +34,6 @@ export class EditarNotaComponent implements OnInit {
        "status_anotacao":"ativo",
        "conteudo_anotacao":"`+ conteudo + `"
       }`
-      alert("Alterado com sucesso!");
       this.notaService.editar(json);
     }
 

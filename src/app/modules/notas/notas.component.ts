@@ -57,7 +57,7 @@ adicionar(){
 }
 
 inativar(nota){
-  let confirmacao = confirm("Deseja realmente excluir?");
+  let confirmacao = confirm("Deseja realmente excluir");
   if (confirmacao) {
   let json = `{"idAnotacao":"` + nota + `"}`
 this.notaService.inativar(json);

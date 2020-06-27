@@ -21,7 +21,7 @@ export class CadastroComponent implements OnInit {
     private router: Router
      ) { 
        this.cadastroForm = this.formBuilder.group({
-         nome: [''],
+         nome: ['', [Validators.required, Validators.minLength(1)]],
          email: ['', [Validators.required, Validators.minLength(1)]],
          senha: ['', [Validators.required, Validators.minLength(1)]],
          status: ['ativo']

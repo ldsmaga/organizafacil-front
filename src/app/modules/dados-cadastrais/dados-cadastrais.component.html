@@ -1,1 +1,38 @@
-<p>dados</p>
+<mat-tab-group>
+<mat-tab label="Dados Cadastrais"> 
+<h1>Dados Cadastrais</h1>
+<mat-divider></mat-divider>
+<h3>Nome:</h3>
+<p>{{usuario.nome}}</p>
+<mat-divider></mat-divider>
+<h3>Email:</h3>
+<p>{{usuario.username}}</p>
+</mat-tab>
+
+<mat-tab label="Alterar Dados">
+<h1>Alterar Dados</h1>
+<form [formGroup]="dadosForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>Editar Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Nome">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Editar Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Editar Senha</mat-label>
+        <input matInput formControlName="senha" placeholder="Senha">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="alterarDados(usuario.id)">Editar</button> 
+</form> 
+<mat-divider></mat-divider>
+</mat-tab>
+
+<mat-tab label="Inativar Conta">
+<h1>Inativar Conta</h1>
+<button mat-button color="warn" (click)="inativar()" title="Excluir Conta"><mat-icon>delete</mat-icon>Excluir Conta</button>
+</mat-tab>
+</mat-tab-group>
+
+<!-- <pre>{{usuario | json}}</pre> -->
