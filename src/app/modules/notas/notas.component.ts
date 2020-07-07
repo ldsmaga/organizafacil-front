@@ -29,7 +29,7 @@ export class NotasComponent implements OnInit {
     
       this.notaForm = this.formBuilder.group({
         status_anotacao: ['ativo'],
-        conteudo_anotacao: ['']
+        conteudo_anotacao: ['', [Validators.required, Validators.minLength(1)]]
       })
 
      }
@@ -80,12 +80,13 @@ this.notaService.desarquivar(json);
 }
 }
 
-openDialog(idNota){
+openDialog(idNota, conteudo_anotacao){
   
   const dialogRef = this.dialog.open(EditarNotaComponent, {
     width: '800px',
     data: {
-      idAnotacao: idNota
+      idAnotacao: idNota,
+      conteudo_anotacao: conteudo_anotacao
     }
   });
 

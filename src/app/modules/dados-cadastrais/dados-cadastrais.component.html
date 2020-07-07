@@ -17,14 +17,15 @@
 <h1>Alterar Dados</h1>
 <mat-divider></mat-divider>
 <form [formGroup]="dadosForm">
+    <ng-container *ngIf="usuario">
     <mat-form-field class="example-full-width">
         <mat-label>Editar Nome</mat-label>
-        <input matInput formControlName="nome" placeholder="Nome">
+        <input matInput formControlName="nome" placeholder="Nome" [(ngModel)]="usuario.nome">
     </mat-form-field>
     <mat-divider></mat-divider><br>
     <mat-form-field class="example-full-width">
         <mat-label>Editar Email</mat-label>
-        <input matInput formControlName="email" placeholder="Email">
+        <input matInput formControlName="email" placeholder="Email" [(ngModel)]="usuario.username">
     </mat-form-field>
     <mat-divider></mat-divider><br>
     <mat-form-field class="example-full-width">
@@ -39,7 +40,8 @@
 
 
       <button mat-raised-button color="primary" (click)="alterarDados(usuario.id)" [disabled]="dadosForm.invalid">Editar</button> 
-</form> 
+</ng-container>
+    </form> 
 </mat-tab>
 
 <mat-tab label="Excluir Conta">

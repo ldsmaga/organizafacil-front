@@ -3,8 +3,10 @@
 <form [formGroup]="notaForm">
     <mat-form-field class="example-full-width">
         <mat-label>Editar Nota</mat-label>
-        <textarea matInput formControlName="conteudo_anotacao" placeholder="Editar Nota"></textarea>
+        <textarea matInput formControlName="conteudo_anotacao" placeholder="Editar Nota" [(ngModel)]="data.conteudo_anotacao"></textarea>
       </mat-form-field>
       <button mat-button color="warn" (click)="onNoClick()">Cancelar</button> 
       <button mat-raised-button color="primary" (click)="alterarNota()">Editar</button> 
 </form> 
+
+<!-- <pre>{{data | json}}</pre> -->

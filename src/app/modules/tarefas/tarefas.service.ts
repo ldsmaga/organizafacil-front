@@ -52,6 +52,7 @@ export class TarefasService {
     return this.http.put(`${this.tarefasUrl}/editar`, json).subscribe(
       resultado => {
         console.log(resultado)
+        window.location.reload();
       })
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotasModel } from 'src/app/models/notas.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TarefasService } from './tarefas.service';
 import { TarefasModel } from 'src/app/models/tarefas.model';
 import { EditarTarefaComponent } from './editar-tarefa/editar-tarefa.component';
@@ -23,7 +23,7 @@ export class TarefasComponent implements OnInit {
     ) {
       this.tarefaForm = this.formBuilder.group({
         status_tarefa: ['ativo'],
-        conteudo_tarefa: ['']
+        conteudo_tarefa: ['', [Validators.required, Validators.minLength(1)]]
       })
      }
 
@@ -57,12 +57,13 @@ this.tarefaService.inativar(json);
 }
 }
 
-openDialog(idTarefa){
+openDialog(idTarefa, conteudo_tarefa){
   
   const dialogRef = this.dialog.open(EditarTarefaComponent, {
     width: '800px',
     data: {
-      idTarefa: idTarefa
+      idTarefa: idTarefa,
+      conteudo_tarefa: conteudo_tarefa
     }
   });
 

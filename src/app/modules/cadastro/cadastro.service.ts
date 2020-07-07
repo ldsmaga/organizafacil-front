@@ -16,6 +16,10 @@ export class CadastroService {
         console.log(resultado) 
         alert("Cadastro concluído!");
         this.router.navigate(['/']);
+      },
+      err=>{
+        alert("Email em uso");
+        window.location.reload();
       })
   }
 

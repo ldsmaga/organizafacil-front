@@ -23,8 +23,12 @@ export class DadosCadastraisComponent implements OnInit {
       email: [''],
       senha: ['', [Validators.required, Validators.minLength(1)]],
       confirmacaoSenha: ['', [Validators.required, Validators.minLength(1)]]
-    })}
+    })
+    
+  
+  }
 
+    
   ngOnInit(): void {
     this.listar();
       }
@@ -59,11 +63,7 @@ export class DadosCadastraisComponent implements OnInit {
         alert("Senhas não coincidem")
         window.location.reload();
       }
-      else{
-
-        if(email == ''){
-          email = this.userService.getUsername();
-        }
+      else{        
 
         let json =  `{
           "idUsuario":"`+ id + `",

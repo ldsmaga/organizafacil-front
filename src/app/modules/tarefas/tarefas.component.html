@@ -7,7 +7,7 @@
             <mat-label>Adicionar Tarefa</mat-label>
             <input matInput formControlName="conteudo_tarefa" placeholder="Tarefa">
           </mat-form-field>
-    <button mat-raised-button color="primary" (click)="adicionar()">Adicionar</button> 
+    <button mat-raised-button color="primary" (click)="adicionar()" [disabled]="tarefaForm.invalid">Adicionar</button> 
     </form> 
     <br>
     <mat-divider></mat-divider>
@@ -19,7 +19,7 @@
             <mat-card>
                 <mat-checkbox (click)="arquivar(tarefa.idTarefa)" >{{tarefa.conteudo_tarefa}}</mat-checkbox>
                 <div fxLayout="row" fxLayoutAlign="end stretch">
-                <button mat-mini-fab color="primary" (click)="openDialog(tarefa.idTarefa)"><mat-icon>create</mat-icon></button>
+                <button mat-mini-fab color="primary" (click)="openDialog(tarefa.idTarefa, tarefa.conteudo_tarefa)"><mat-icon>create</mat-icon></button>
                 <button mat-mini-fab color="warn" (click)="inativar(tarefa.idTarefa)"><mat-icon>delete</mat-icon></button>
             </div>
             </mat-card><br>

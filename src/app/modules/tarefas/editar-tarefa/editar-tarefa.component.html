@@ -3,7 +3,7 @@
 <form [formGroup]="tarefaForm">
     <mat-form-field class="example-full-width">
         <mat-label>Editar Tarefa</mat-label>
-        <textarea matInput formControlName="conteudo_tarefa" placeholder="Editar Tarefa"></textarea>
+        <input matInput formControlName="conteudo_tarefa" placeholder="Editar Tarefa" [(ngModel)]="data.conteudo_tarefa">
       </mat-form-field>
       <button mat-button color="warn" (click)="onNoClick()">Cancelar</button> 
       <button mat-raised-button color="primary" (click)="alterarTarefa()">Editar</button> 

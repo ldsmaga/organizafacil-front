@@ -28,6 +28,7 @@ import { EditarNotaComponent } from 'src/app/modules/notas/editar-nota/editar-no
     DadosCadastraisComponent
   ],
   imports: [
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     CommonModule,
     RouterModule,
     FlexLayoutModule,

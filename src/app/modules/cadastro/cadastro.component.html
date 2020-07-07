@@ -48,13 +48,13 @@
             <mat-card-actions>
                 <mat-grid-list cols="1" rowHeight="50px">
                     <mat-grid-tile>
-                        <button mat-button color="warn" (click)="cancelar()">
-                            <mat-icon>cancel</mat-icon>
-                            <span>Cancelar</span>
-                        </button><br>
                         <button *ngIf="!load; else spin;" type="submit" mat-flat-button color="primary" [disabled]="cadastroForm.invalid" (click)="cadastrar()" >
                             <mat-icon>check</mat-icon>
                             <span>Cadastrar</span>
+                        </button><br>
+                        <button mat-button color="warn" (click)="cancelar()">
+                            <mat-icon>cancel</mat-icon>
+                            <span>Cancelar</span>
                         </button>
                     </mat-grid-tile>
                 </mat-grid-list>
@@ -67,7 +67,7 @@
 <!-- Botão que mostra para o usuário assim que o download iniciar -->
 <ng-template #spin>
     <button mat-raised-button color="primary" title="Clique para entrar" >
-         Entrando...&nbsp;&nbsp; <!--<app-spinner-angularmaterial></app-spinner-angularmaterial>   -->
+         Cadastrando...&nbsp;&nbsp; <!--<app-spinner-angularmaterial></app-spinner-angularmaterial>   -->
     </button>
     </ng-template>
 </body>
